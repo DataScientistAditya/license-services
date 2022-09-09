@@ -1,5 +1,4 @@
 import React,{useState,useEffect}from "react";
-import { Component } from "react";
 import { Button, Form } from "react-bootstrap";
 import { Card, Row, Col} from "react-bootstrap";
 
