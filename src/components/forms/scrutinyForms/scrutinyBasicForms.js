@@ -1,15 +1,7 @@
 import React,{useState} from "react";
-<<<<<<< HEAD
 import { Button, Form } from "react-bootstrap";
 import { Card, Row, Col} from "react-bootstrap";
 import {AiFillCheckCircle, AiFillCloseCircle} from "react-icons/ai";
-=======
-import Personalinfo from "./Personalinfo/Personalinfo";
-import Genarelinfo from "./Generalinfo/Generalinfo";
-import Developerinfo from "./Developerinfo/Developerinfo";
-import AppliedLandinfo from "./AppliedLand/AppliedLand";
-
->>>>>>> 6679b4a (departmental login)
 const ScrutitnyForms=()=>{
     const [displayPersonal,setDisplayPersonalInfo] = useState("none");
     const [displayPurpose,setDisplayPurposeInfo] = useState("none");
@@ -19,7 +11,6 @@ const ScrutitnyForms=()=>{
 
     console.log(uncheckedValue);
     return(
-<<<<<<< HEAD
        <Form>
             <div className="justify-content-center" 
                 onClick={()=>(displayPersonal==="none")?setDisplayPersonalInfo("block"):setDisplayPersonalInfo("none")} 
@@ -446,17 +437,4 @@ const ScrutitnyForms=()=>{
     )
 }
 
-=======
-       <div>
-            <Personalinfo></Personalinfo>
-            <Genarelinfo></Genarelinfo>
-            <Developerinfo></Developerinfo>
-            <AppliedLandinfo></AppliedLandinfo>
-       </div>
-    )
-}
-
-
-
->>>>>>> 6679b4a (departmental login)
 export default ScrutitnyForms;
