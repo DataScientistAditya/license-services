@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
@@ -9,6 +9,7 @@ import {useForm } from "react-hook-form";
 import "../Developer/AddInfo.css";
 import "../Developer/Add1.css";
 import UploadDocuments from "./UploadDocuments";
+import axios from "axios";
 
 function AddInfo() {
   const { register, handleSumit,formState: { error }, } = useForm([
@@ -35,6 +36,27 @@ function AddInfo() {
     const getshow = e.target.value;
     setShowhide(getshow);
   };
+
+  const HandleGetMCNdata=async()=>{
+      try{
+        if (cinNo.length===21) {
+          const Resp = await axios.get("https://apisetu.gov.in/mca/v1/companies/U72200CH1998PTC022006", {headers:{
+            'Content-Type': 'application/json',
+            'X-APISETU-APIKEY':'PDSHazinoV47E18bhNuBVCSEm90pYjEF',
+            'X-APISETU-CLIENTID':'in.gov.tcpharyana',
+            'Access-Control-Allow-Origin':"*",
+          }})
+
+          console.log(Resp.data)
+        }
+      }catch(error){
+        console.log(error.message);
+      }
+  }
+
+  useEffect(()=>{
+    HandleGetMCNdata();
+  },[cinNo])
 
   const [noofRows, setNoOfRows] = useState(0);
   const [aoofRows, setAoOfRows] = useState(1);
@@ -89,28 +111,9 @@ const AddInfoForm=(e)=>{
                       <div className="form-group">
                         <label htmlFor="name" >CIN Number/LLP Pin</label>
                         <input
-                          type="text" onKeyPress={(e) => handleKeyPress(e)} onClick={callApi} 
-                          onChange={(e) => setCinNo(e.target.value)} value={cinNo}
-                       
+                          type="text" 
+                          onChange={(e)=>setCinNo(e.target.value)}
                           className="form-control"
-                          // placeholder=""
-                          // {...register("name", {
-                          //   required: "Name is required",
-                          //   pattern: {
-                          //     value: /^[a-zA-Z]+$/,
-                          //     message: "Name must be a valid string",
-                          //   },
-                          //   minLength: {
-                          //     value: 3,
-                          //     message:
-                          //       "Name should be greater than 3 characters",
-                          //   },
-                          //   maxLength: {
-                          //     value: 20,
-                          //     message:
-                          //       "Name shouldn't be greater than 20 characters",
-                          //   },
-                          // })}
                         />
                     
                       </div>
