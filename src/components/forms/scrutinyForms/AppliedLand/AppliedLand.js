@@ -2,10 +2,11 @@ import React,{useState} from "react";
 import { Button, Form } from "react-bootstrap";
 import { Card, Row, Col} from "react-bootstrap";
 import {AiFillCheckCircle, AiFillCloseCircle} from "react-icons/ai";
-
+import MigrationAppliedTrue from "./UnderMigrationApllied/MigrationAplliedTrue";
 
 const AppliedLandinfo=(props)=>{
     const [uncheckedValue,setUncheckedVlue]=useState([]);
+    const [migrationApllied,setMigrationApplied] = useState(true);
     return(
         <Form>
             {/* <div className="justify-content-center" 
@@ -468,17 +469,567 @@ const AppliedLandinfo=(props)=>{
                     </Col>
                 </Row>
                 <h2 style={{fontSize:24}}>Whether licence applied under Migration policy <span style={{color:"red"}}>*</span></h2>
-                <Form.Check  value="yes" 
+                <Form.Check  
+                        onChange={()=>setMigrationApplied(true)}
+                        value="yes" 
                         type="radio" 
                         id = "default-radio" 
                         label="YES" 
                         name="group62" inline></Form.Check>
-                <Form.Check onChange={(e)=>setUncheckedVlue((prev)=>[...prev,e.target.value])} 
+                <Form.Check onChange={()=>setMigrationApplied(false)} 
                         value="no" 
                         type="radio" 
                         id = "default-radio" 
                         label="NO"
                         name="group62" inline></Form.Check>
+                
+                {(migrationApllied)?
+                    <MigrationAppliedTrue></MigrationAppliedTrue>
+                    :
+                    <div></div>}
+                <Row className="ms-auto" style={{marginBottom:20}}>
+                    <Col md={4} xxl lg="3">
+                        <div>
+                            <Form.Label>Select commercial licence component type</Form.Label><span style={{color:"red"}}>*</span>
+                        </div>
+                        <Form.Check value="Commercial licence under 3.5%" 
+                                    type="radio" 
+                                    id = "default-radio" 
+                                    label={<AiFillCheckCircle size={18}></AiFillCheckCircle>} 
+                                    name="group65" inline></Form.Check>
+                        <Form.Check onChange={(e)=>setUncheckedVlue((prev)=>[...prev,e.target.value])} 
+                                    value="Commercial licence under left over pocket" 
+                                    type="radio" 
+                                    id = "default-radio" 
+                                    label={<AiFillCloseCircle size={18}></AiFillCloseCircle>} 
+                                    name="group65" inline></Form.Check>
+                        <Form.Control style={{maxWidth:200, marginTop:10}} readOnly></Form.Control>
+                    </Col>
+                    <Col md={4} xxl lg="3">
+                        <div>
+                            <Form.Label>Commercial licence under left over pocket</Form.Label><span style={{color:"red"}}>*</span>
+                        </div>
+                        <Form.Check value="Commercial licence under left over pocket" 
+                                    type="radio" 
+                                    id = "default-radio" 
+                                    label={<AiFillCheckCircle size={18}></AiFillCheckCircle>} 
+                                    name="group70" inline></Form.Check>
+                        <Form.Check onChange={(e)=>setUncheckedVlue((prev)=>[...prev,e.target.value])} 
+                                    value="Commercial licence under left over pocket" 
+                                    type="radio" 
+                                    id = "default-radio" 
+                                    label={<AiFillCloseCircle size={18}></AiFillCloseCircle>} 
+                                    name="group70" inline></Form.Check>
+                        <Form.Control style={{maxWidth:200, marginTop:10}} readOnly></Form.Control>
+                    </Col>
+                </Row>
+                <Row className="ms-auto" style={{marginBottom:20}}>
+                    <Col md={4} xxl lg="3">
+                        <div>
+                            <Form.Label>Potential Zone</Form.Label><span style={{color:"red"}}>*</span>
+                        </div>
+                        <Form.Check  value="Potential Zone" 
+                                    type="radio" 
+                                    id = "default-radio" 
+                                    label={<AiFillCheckCircle size={18}></AiFillCheckCircle>} 
+                                    name="group66" inline></Form.Check>
+                        <Form.Check onChange={(e)=>setUncheckedVlue((prev)=>[...prev,e.target.value])} 
+                                    value="Potential Zone" 
+                                    type="radio" 
+                                    id = "default-radio" 
+                                    label={<AiFillCloseCircle size={18}></AiFillCloseCircle>} 
+                                    name="group66" inline></Form.Check>
+                        <Form.Control style={{maxWidth:200, marginTop:10}} readOnly></Form.Control>
+                    </Col>
+                    <Col md={4} xxl lg="3">
+                        <div>
+                            <Form.Label>Site Location Purpose</Form.Label><span style={{color:"red"}}>*</span>
+                        </div>
+                        <Form.Check  value="Site Location Purposee" 
+                                    type="radio" 
+                                    id = "default-radio" 
+                                    label={<AiFillCheckCircle size={18}></AiFillCheckCircle>} 
+                                    name="group67" inline></Form.Check>
+                        <Form.Check onChange={(e)=>setUncheckedVlue((prev)=>[...prev,e.target.value])} 
+                                    value="Site Location Purpose" 
+                                    type="radio" 
+                                    id = "default-radio" 
+                                    label={<AiFillCloseCircle size={18}></AiFillCloseCircle>} 
+                                    name="group67" inline></Form.Check>
+                        <Form.Control style={{maxWidth:200, marginTop:10}} readOnly></Form.Control>
+                    </Col>
+                    <Col md={4} xxl lg="3">
+                        <div>
+                            <Form.Label>Development Plan</Form.Label><span style={{color:"red"}}>*</span>
+                        </div>
+                        <Form.Check  value="Development Plan" 
+                                    type="radio" 
+                                    id = "default-radio" 
+                                    label={<AiFillCheckCircle size={18}></AiFillCheckCircle>} 
+                                    name="group68" inline></Form.Check>
+                        <Form.Check onChange={(e)=>setUncheckedVlue((prev)=>[...prev,e.target.value])} 
+                                    value="Development Plan" 
+                                    type="radio" 
+                                    id = "default-radio" 
+                                    label={<AiFillCloseCircle size={18}></AiFillCloseCircle>} 
+                                    name="group68" inline></Form.Check>
+                        <Form.Control style={{maxWidth:200, marginTop:10}} readOnly></Form.Control>
+                    </Col>
+                    <Col md={4} xxl lg="3">
+                        <div>
+                            <Form.Label>District</Form.Label><span style={{color:"red"}}>*</span>
+                        </div>
+                        <Form.Check  value="District" 
+                                    type="radio" 
+                                    id = "default-radio" 
+                                    label={<AiFillCheckCircle size={18}></AiFillCheckCircle>} 
+                                    name="group69" inline></Form.Check>
+                        <Form.Check onChange={(e)=>setUncheckedVlue((prev)=>[...prev,e.target.value])} 
+                                    value="District" 
+                                    type="radio" 
+                                    id = "default-radio" 
+                                    label={<AiFillCloseCircle size={18}></AiFillCloseCircle>} 
+                                    name="group69" inline></Form.Check>
+                        <Form.Control style={{maxWidth:200, marginTop:10}} readOnly></Form.Control>
+                    </Col>
+                </Row>
+                <Row className="ms-auto" style={{marginBottom:20}}>
+                    <Col md={4} xxl lg="3">
+                        <div>
+                            <Form.Label>Approach Road Width</Form.Label><span style={{color:"red"}}>*</span>
+                        </div>
+                        <Form.Check  value="Approach Road Width" 
+                                    type="radio" 
+                                    id = "default-radio" 
+                                    label={<AiFillCheckCircle size={18}></AiFillCheckCircle>} 
+                                    name="group71" inline></Form.Check>
+                        <Form.Check onChange={(e)=>setUncheckedVlue((prev)=>[...prev,e.target.value])} 
+                                    value="Approach Road Width" 
+                                    type="radio" 
+                                    id = "default-radio" 
+                                    label={<AiFillCloseCircle size={18}></AiFillCloseCircle>} 
+                                    name="group71" inline></Form.Check>
+                        <Form.Control style={{maxWidth:200, marginTop:10}} readOnly></Form.Control>
+                    </Col>
+                    <Col md={4} xxl lg="3">
+                        <div>
+                            <Form.Label>Site Location Purpose</Form.Label><span style={{color:"red"}}>*</span>
+                        </div>
+                        <Form.Check  value="Developer Typ" 
+                                    type="radio" 
+                                    id = "default-radio" 
+                                    label={<AiFillCheckCircle size={18}></AiFillCheckCircle>} 
+                                    name="group72" inline></Form.Check>
+                        <Form.Check onChange={(e)=>setUncheckedVlue((prev)=>[...prev,e.target.value])} 
+                                    value="Developer Type" 
+                                    type="radio" 
+                                    id = "default-radio" 
+                                    label={<AiFillCloseCircle size={18}></AiFillCloseCircle>} 
+                                    name="group72" inline></Form.Check>
+                        <Form.Control style={{maxWidth:200, marginTop:10}} readOnly></Form.Control>
+                    </Col>
+                    <Col md={4} xxl lg="3">
+                        <div>
+                            <Form.Label>Specify Others</Form.Label><span style={{color:"red"}}>*</span>
+                        </div>
+                        <Form.Check  value="Specify Others" 
+                                    type="radio" 
+                                    id = "default-radio" 
+                                    label={<AiFillCheckCircle size={18}></AiFillCheckCircle>} 
+                                    name="group73" inline></Form.Check>
+                        <Form.Check onChange={(e)=>setUncheckedVlue((prev)=>[...prev,e.target.value])} 
+                                    value="Specify Others" 
+                                    type="radio" 
+                                    id = "default-radio" 
+                                    label={<AiFillCloseCircle size={18}></AiFillCloseCircle>} 
+                                    name="group73" inline></Form.Check>
+                        <Form.Control style={{maxWidth:200, marginTop:10}} readOnly></Form.Control>
+                    </Col>
+                    <Col md={4} xxl lg="3">
+                        <div>
+                            <Form.Label>District</Form.Label><span style={{color:"red"}}>*</span>
+                        </div>
+                        <Form.Check  value="District" 
+                                    type="radio" 
+                                    id = "default-radio" 
+                                    label={<AiFillCheckCircle size={18}></AiFillCheckCircle>} 
+                                    name="group74" inline></Form.Check>
+                        <Form.Check onChange={(e)=>setUncheckedVlue((prev)=>[...prev,e.target.value])} 
+                                    value="District" 
+                                    type="radio" 
+                                    id = "default-radio" 
+                                    label={<AiFillCloseCircle size={18}></AiFillCloseCircle>} 
+                                    name="group74" inline></Form.Check>
+                        <Form.Control style={{maxWidth:200, marginTop:10}} readOnly></Form.Control>
+                    </Col>
+                </Row>
+                <Row className="ms-auto" style={{marginBottom:20}}>
+                    <Col md={4} xxl lg="3">
+                        <div>
+                            <Form.Label>Existing Case No</Form.Label><span style={{color:"red"}}>*</span>
+                        </div>
+                        <Form.Check  value="Existing Case No" 
+                                    type="radio" 
+                                    id = "default-radio" 
+                                    label={<AiFillCheckCircle size={18}></AiFillCheckCircle>} 
+                                    name="group75" inline></Form.Check>
+                        <Form.Check onChange={(e)=>setUncheckedVlue((prev)=>[...prev,e.target.value])} 
+                                    value="Existing Case No" 
+                                    type="radio" 
+                                    id = "default-radio" 
+                                    label={<AiFillCloseCircle size={18}></AiFillCloseCircle>} 
+                                    name="group75" inline></Form.Check>
+                        <Form.Control style={{maxWidth:200, marginTop:10}} readOnly></Form.Control>
+                    </Col>
+                 
+                </Row>
+                <hr></hr>
+                <Row className="ms-auto" style={{marginBottom:20}}>
+                    <Col md={4} xxl lg="3">
+                        <div>
+                            <Form.Label>Parent License</Form.Label><span style={{color:"red"}}>*</span>
+                        </div>
+                        <Form.Check  value="Parent License" 
+                                    type="radio" 
+                                    id = "default-radio" 
+                                    label={<AiFillCheckCircle size={18}></AiFillCheckCircle>} 
+                                    name="group76" inline></Form.Check>
+                        <Form.Check onChange={(e)=>setUncheckedVlue((prev)=>[...prev,e.target.value])} 
+                                    value="Parent License" 
+                                    type="radio" 
+                                    id = "default-radio" 
+                                    label={<AiFillCloseCircle size={18}></AiFillCloseCircle>} 
+                                    name="group76" inline></Form.Check>
+                        <Form.Control style={{maxWidth:200, marginTop:10}} readOnly></Form.Control>
+                    </Col>
+                 
+                </Row>
+                <Row>
+                <Col md={4} xxl lg="3">
+                        <div>
+                            <Form.Label>Purpose of Colony</Form.Label><span style={{color:"red"}}>*</span>
+                        </div>
+                        <Form.Control style={{maxWidth:200, marginTop:10}} readOnly></Form.Control>
+                    </Col>
+                    <Col md={4} xxl lg="3">
+                        <div>
+                            <Form.Label>Granted Area (in Acres)</Form.Label><span style={{color:"red"}}>*</span>
+                        </div>
+                        <Form.Control style={{maxWidth:200, marginTop:10}} readOnly></Form.Control>
+                    </Col>
+                    <Col md={4} xxl lg="3">
+                        <div>
+                            <Form.Label>Area in acres</Form.Label><span style={{color:"red"}}>*</span>
+                        </div>
+                        <Form.Control style={{maxWidth:200, marginTop:10}} readOnly></Form.Control>
+                    </Col>
+                    <Col md={4} xxl lg="3">
+                        <div>
+                            <Form.Label>Total Area in acres</Form.Label><span style={{color:"red"}}>*</span>
+                        </div>
+                        <Form.Control style={{maxWidth:200, marginTop:10}} readOnly></Form.Control>
+                    </Col>
+                    <Col md={4} xxl lg="3">
+                        <div>
+                            <Form.Label>Remarks, if any</Form.Label><span style={{color:"red"}}>*</span>
+                        </div>
+                        <Form.Control style={{maxWidth:200, marginTop:10}} readOnly></Form.Control>
+                    </Col>
+                    <Col md={4} xxl lg="3">
+                    <div>
+                        <Form.Label>License Number</Form.Label><span style={{color:"red"}}>*</span>
+                    </div>
+                
+                    <Form.Control style={{marginTop:10}} readOnly></Form.Control>
+                </Col>
+                <Col md={4} xxl lg="3">
+                    <div>
+                        <Form.Label>Developer</Form.Label><span style={{color:"red"}}>*</span>
+                    </div>
+                    <Form.Control style={{marginTop:10}} readOnly></Form.Control>
+                </Col>
+                </Row>
+                <hr></hr>
+                <Row className="ms-auto" style={{marginBottom:20}}>
+                    <Col md={4} xxl lg="8">
+                        <div>
+                            <Form.Label style={{fontSize:24}}>Third Party Right created (Yes/No) </Form.Label><span style={{color:"red"}}>*</span>
+                        </div>
+                        <Form.Check  value="Third Party Right created" 
+                                    type="radio" 
+                                    id = "default-radio" 
+                                    label={<AiFillCheckCircle size={18}></AiFillCheckCircle>} 
+                                    name="group77" inline></Form.Check>
+                        <Form.Check onChange={(e)=>setUncheckedVlue((prev)=>[...prev,e.target.value])} 
+                                    value="Third Party Right created" 
+                                    type="radio" 
+                                    id = "default-radio" 
+                                    label={<AiFillCloseCircle size={18}></AiFillCloseCircle>} 
+                                    name="group77" inline></Form.Check>
+                        
+                    </Col>
+                 
+                </Row>
+                <hr></hr>
+                <Row className="ms-auto" style={{marginBottom:20}}>
+                    <Col md={4} xxl lg="8">
+                        <div>
+                            <Form.Label style={{fontSize:24}}>Migration </Form.Label><span style={{color:"red"}}>*</span>
+                        </div>
+                        <Form.Check  value="Migration" 
+                                    type="radio" 
+                                    id = "default-radio" 
+                                    label={<AiFillCheckCircle size={18}></AiFillCheckCircle>} 
+                                    name="group78" inline></Form.Check>
+                        <Form.Check onChange={(e)=>setUncheckedVlue((prev)=>[...prev,e.target.value])} 
+                                    value="Migration" 
+                                    type="radio" 
+                                    id = "default-radio" 
+                                    label={<AiFillCloseCircle size={18}></AiFillCloseCircle>} 
+                                    name="group78" inline></Form.Check>
+                        
+                    </Col>
+                 
+                </Row>
+                <hr></hr>
+                <Row className="ms-auto" style={{marginBottom:20}}>
+                    <Col xxl lg="6">
+                        <Form.Label>1. Require Original Layout Plan</Form.Label>
+                        <Form.Control type="file"></Form.Control>
+                    </Col>
+                    <Col xxl lg="6">
+                        <Form.Label>2. Require Revised Layout Plan</Form.Label>
+                        <Form.Control type="file"></Form.Control>
+                    </Col>
+                    <Col xxl lg="6">
+                        <Form.Label>3. Land Schedule </Form.Label>
+                        <Form.Control type="file"></Form.Control>
+                    </Col>
+                    <Col xxl lg="6">
+                        <Form.Label>4. Undertaking form </Form.Label>
+                        <Form.Control type="file"></Form.Control>
+                    </Col>
+                </Row>
+                <hr></hr>
+                <Row className="ms-auto" style={{marginBottom:20}}>
+                    <Col md={4} xxl lg="8">
+                        <div>
+                            <h2 style={{fontSize:24}}>I. Details of Approach</h2>
+                            <Form.Label >(i) Whether approach available to the site as per current approach policy (Yes/No) : </Form.Label><span style={{color:"red"}}>*</span>
+                        </div>
+                        <Form.Check  value="Third Party Right created" 
+                                    type="radio" 
+                                    id = "default-radio" 
+                                    label={<AiFillCheckCircle size={18}></AiFillCheckCircle>} 
+                                    name="group78" inline></Form.Check>
+                        <Form.Check onChange={(e)=>setUncheckedVlue((prev)=>[...prev,e.target.value])} 
+                                    value="Third Party Right created" 
+                                    type="radio" 
+                                    id = "default-radio" 
+                                    label={<AiFillCloseCircle size={18}></AiFillCloseCircle>} 
+                                    name="group78" inline></Form.Check>
+                        
+                    </Col>
+                 
+                </Row>
+                <Row className="ms-auto" style={{marginBottom:20}}>
+                    <Col md={4} xxl lg="8">
+                        <div>
+                            <h2 style={{fontSize:24}}>II. Applied Area details</h2>
+                            <Form.Label >
+                            Note: The term “Collaboration agreement" shall include all Development agreements/ Joint Venture agreements/ Joint Development agreements/ Memorandum of Understanding etc. and similar agreements registered with competent authority.
+                            </Form.Label>
+                            <Form.Label>(ii) Any encumbrance with respect to following </Form.Label><span style={{color:"red"}}>*</span>
+                        </div>
+                        <Form.Check  value="Any encumbrance with respect to following" 
+                                    type="radio" 
+                                    id = "default-radio" 
+                                    label={<AiFillCheckCircle size={18}></AiFillCheckCircle>} 
+                                    name="group78" inline></Form.Check>
+                        <Form.Check onChange={(e)=>setUncheckedVlue((prev)=>[...prev,e.target.value])} 
+                                    value="Any encumbrance with respect to following" 
+                                    type="radio" 
+                                    id = "default-radio" 
+                                    label={<AiFillCloseCircle size={18}></AiFillCloseCircle>} 
+                                    name="group78" inline></Form.Check>
+                        
+                    </Col>
+                 
+                </Row>
+                <Row className="ms-auto" style={{marginBottom:20}}>
+                    <Col md={4} xxl lg="3">
+                        <div>
+                            <Form.Label>(a) Rehan / Mortgage </Form.Label><span style={{color:"red"}}>*</span>
+                        </div>
+                        <Form.Check  value="Rehan / Mortgage" 
+                                    type="radio" 
+                                    id = "default-radio" 
+                                    label={<AiFillCheckCircle size={18}></AiFillCheckCircle>} 
+                                    name="group79" inline></Form.Check>
+                        <Form.Check onChange={(e)=>setUncheckedVlue((prev)=>[...prev,e.target.value])} 
+                                    value="Rehan / Mortgage" 
+                                    type="radio" 
+                                    id = "default-radio" 
+                                    label={<AiFillCloseCircle size={18}></AiFillCloseCircle>} 
+                                    name="group79" inline></Form.Check>
+                        
+                    </Col>
+                    <Col md={4} xxl lg="3">
+                        <div>
+                            <Form.Label>(b) Patta/Lease (Yes/No) </Form.Label><span style={{color:"red"}}>*</span>
+                        </div>
+                        <Form.Check  value="Patta/Lease" 
+                                    type="radio" 
+                                    id = "default-radio" 
+                                    label={<AiFillCheckCircle size={18}></AiFillCheckCircle>} 
+                                    name="group80" inline></Form.Check>
+                        <Form.Check onChange={(e)=>setUncheckedVlue((prev)=>[...prev,e.target.value])} 
+                                    value="Patta/Lease" 
+                                    type="radio" 
+                                    id = "default-radio" 
+                                    label={<AiFillCloseCircle size={18}></AiFillCloseCircle>} 
+                                    name="group80" inline></Form.Check>
+                        
+                    </Col>
+                    <Col md={4} xxl lg="3">
+                        <div>
+                            <Form.Label>(c) GairMarusi (Yes/No) </Form.Label><span style={{color:"red"}}>*</span>
+                        </div>
+                        <Form.Check  value="GairMarusi" 
+                                    type="radio" 
+                                    id = "default-radio" 
+                                    label={<AiFillCheckCircle size={18}></AiFillCheckCircle>} 
+                                    name="group81" inline></Form.Check>
+                        <Form.Check onChange={(e)=>setUncheckedVlue((prev)=>[...prev,e.target.value])} 
+                                    value="GairMarusi" 
+                                    type="radio" 
+                                    id = "default-radio" 
+                                    label={<AiFillCloseCircle size={18}></AiFillCloseCircle>} 
+                                    name="group81" inline></Form.Check>
+                        
+                    </Col>
+                    <Col md={4} xxl lg="3">
+                        <div>
+                            <Form.Label>(d) Any other, please specify  </Form.Label><span style={{color:"red"}}>*</span>
+                        </div>
+                        <Form.Check  value="GairMarusi" 
+                                    type="radio" 
+                                    id = "default-radio" 
+                                    label={<AiFillCheckCircle size={18}></AiFillCheckCircle>} 
+                                    name="group82" inline></Form.Check>
+                        <Form.Check onChange={(e)=>setUncheckedVlue((prev)=>[...prev,e.target.value])} 
+                                    value="GairMarusi" 
+                                    type="radio" 
+                                    id = "default-radio" 
+                                    label={<AiFillCloseCircle size={18}></AiFillCloseCircle>} 
+                                    name="group82" inline></Form.Check>
+                        
+                    </Col>
+                </Row>
+                <hr></hr>
+                <Row className="ms-auto" style={{marginBottom:20}}>
+                    <Col md={4} xxl lg="8">
+                        <div>
+                            <Form.Label>(iii) Existing litigation, if any, with respect to applied land including co-sharers and collaborator  </Form.Label><span style={{color:"red"}}>*</span>
+                        </div>
+                        <Form.Check  value="Rehan / Mortgage" 
+                                    type="radio" 
+                                    id = "default-radio" 
+                                    label={<AiFillCheckCircle size={18}></AiFillCheckCircle>} 
+                                    name="group83" inline></Form.Check>
+                        <Form.Check onChange={(e)=>setUncheckedVlue((prev)=>[...prev,e.target.value])} 
+                                    value="Rehan / Mortgage" 
+                                    type="radio" 
+                                    id = "default-radio" 
+                                    label={<AiFillCloseCircle size={18}></AiFillCloseCircle>} 
+                                    name="group83" inline></Form.Check>
+                        
+                    </Col>
+                  
+                </Row>
+                <Row className="ms-auto" style={{marginBottom:20}}>
+                    <Col md={4} xxl lg="8">
+                        <div>
+                            <Form.Label>(iv) Court orders, if any, having effect on applied land   </Form.Label><span style={{color:"red"}}>*</span>
+                        </div>
+                        <Form.Check  value="Court orders, if any, having effect on applied land" 
+                                    type="radio" 
+                                    id = "default-radio" 
+                                    label={<AiFillCheckCircle size={18}></AiFillCheckCircle>} 
+                                    name="group84" inline></Form.Check>
+                        <Form.Check onChange={(e)=>setUncheckedVlue((prev)=>[...prev,e.target.value])} 
+                                    value="Court orders, if any, having effect on applied lande" 
+                                    type="radio" 
+                                    id = "default-radio" 
+                                    label={<AiFillCloseCircle size={18}></AiFillCloseCircle>} 
+                                    name="group84" inline></Form.Check>
+                        
+                    </Col>
+                  
+                </Row>
+                <Row className="ms-auto" style={{marginBottom:20}}>
+                    <Col md={4} xxl lg="8">
+                        <div>
+                            <Form.Label>(v) Whether the applied Land is involved in any acquisition </Form.Label><span style={{color:"red"}}>*</span>
+                        </div>
+                        <Form.Check  value="Whether the applied Land is involved in any acquisition" 
+                                    type="radio" 
+                                    id = "default-radio" 
+                                    label={<AiFillCheckCircle size={18}></AiFillCheckCircle>} 
+                                    name="group85" inline></Form.Check>
+                        <Form.Check onChange={(e)=>setUncheckedVlue((prev)=>[...prev,e.target.value])} 
+                                    value="Whether the applied Land is involved in any acquisition" 
+                                    type="radio" 
+                                    id = "default-radio" 
+                                    label={<AiFillCloseCircle size={18}></AiFillCloseCircle>} 
+                                    name="group85" inline></Form.Check>
+                        
+                    </Col>
+                  
+                </Row>
+                <Row className="ms-auto" style={{marginBottom:20}}>
+                    <Col md={4} xxl lg="8">
+                        <div>
+                            <Form.Label>(vi) Any insolvency/liquidation proceedings against land owner(s)/ collaborating developer </Form.Label><span style={{color:"red"}}>*</span>
+                        </div>
+                        <Form.Check  value="Whether the applied Land is involved in any acquisition" 
+                                    type="radio" 
+                                    id = "default-radio" 
+                                    label={<AiFillCheckCircle size={18}></AiFillCheckCircle>} 
+                                    name="group86" inline></Form.Check>
+                        <Form.Check onChange={(e)=>setUncheckedVlue((prev)=>[...prev,e.target.value])} 
+                                    value="Whether the applied Land is involved in any acquisition" 
+                                    type="radio" 
+                                    id = "default-radio" 
+                                    label={<AiFillCloseCircle size={18}></AiFillCloseCircle>} 
+                                    name="group86" inline></Form.Check>
+                        
+                    </Col>
+                  
+                </Row>
+                <Row className="ms-auto" style={{marginBottom:20}}>
+                    <Col md={4} xxl lg="8">
+                        <div>
+                            <h4 style={{fontSize:16}}>2. Details of approach</h4>
+                            <Form.Label>
+                                        (i) Whether approach available to the site as per current approach policy? Yes/No *
+                            </Form.Label><span style={{color:"red"}}>*</span>
+                        </div>
+                        <Form.Check  value="Whether approach available to the site as per current approach policy" 
+                                    type="radio" 
+                                    id = "default-radio" 
+                                    label={<AiFillCheckCircle size={18}></AiFillCheckCircle>} 
+                                    name="group87" inline></Form.Check>
+                        <Form.Check onChange={(e)=>setUncheckedVlue((prev)=>[...prev,e.target.value])} 
+                                    value="Whether approach available to the site as per current approach policy" 
+                                    type="radio" 
+                                    id = "default-radio" 
+                                    label={<AiFillCloseCircle size={18}></AiFillCloseCircle>} 
+                                    name="group87" inline></Form.Check>
+                        
+                    </Col>
+                  
+                </Row>
             </Form.Group>
         </Form>
     )

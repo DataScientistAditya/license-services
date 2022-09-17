@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import DashboardScreen from './Screens/DashboardScreen/DashboardScreen';
+import ScrutityDashScreen from './Screens/DashboardScreen/ScrutinyFormScreen/Scrutinyform';
 import AddInfo from '../src/Developer/AddInfo';
 import Home from '../src/Developer/Home';
 
@@ -20,6 +21,7 @@ function App() {
     
       <Routes>
         <Route path="/dashboard" element={<DashboardScreen />} />
+        <Route path="/dashboard-scrutiny" element={<ScrutityDashScreen />} />
         <Route path="/" element={<DashboardScreen />} />
         <Route path="/addinfo" element={<AddInfo />} />
         <Route path="/home" element={<Home />} />
